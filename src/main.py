@@ -1,20 +1,19 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-app = FastAPI(title="Call Analyzer AI")
+app = FastAPI()
 
 class AudioRequest(BaseModel):
     audio_base64: str
-    language: str
 
 @app.get("/")
-def home():
+def root():
     return {"status": "API running"}
 
-@app.post("/predict")
-def predict(request: AudioRequest):
+@app.post("/detect-voice")
+def detect_voice(data: AudioRequest):
     return {
-        "classification": "AI",
-        "confidence": 0.50,
-        "explanation": "Model not loaded yet"
+        "language": "unknown",
+        "classification": "processing",
+        "risk_score": 0.0
     }
