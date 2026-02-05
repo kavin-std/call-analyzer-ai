@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-API_KEY = "mysecretkey123"
+API_KEY = "gomakakey86"
 
 class AudioRequest(BaseModel):
     audio_base64: str
